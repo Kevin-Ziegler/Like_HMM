@@ -1,0 +1,16 @@
+
+
+Scenario: 3 
+
+filename: /pool/Kevin/LemmonLab/GeneTreeProject/Recombination/Like_HMM/Data/test7_seqgen_phyml_siteLks.txt
+
+
+Viterbi : 
+<0-6101>0:: XXX <6102-7972>1:: XXX <7973-9999>2:: ---> -20230.2792388
+
+
+Forward-Backward : 
+<0-474>2:-108.843724067: XXX <475-6090>0:-109.660804015: XXX <6091-7935>1:-0.753632960481: XXX <7936-9999>2:-37.6065411672: ---> -256.86470221
+Exit Val: 0
+position: 6103 added: -15888.3831 combined: -15915.85 diff: 27.46690000000126
+position: 7974 added: -8130.1548 combined: -8187.5145 diff: 57.359699999999975

@@ -1,0 +1,31 @@
+
+- PHYML v2.4.4 -
+
+. Sequence file : [/pool/Kevin/LemmonLab/GeneTreeProject/Recombination/Like_HMM/Data/test7_seqgen]
+
+. Model of nucleotides substitution : HKY
+
+. Initial tree : [BIONJ]
+
+. Number of taxa : 5
+
+
+. Likelihood : loglk = -20220.62627
+
+. Discrete gamma model : No
+
+. Proportion of invariant : 0.000
+
+. Transition/transversion ratio : 4.000
+
+. Nucleotides frequencies :
+
+  - f(A)= 0.30837
+  - f(C)= 0.20672
+  - f(G)= 0.19028
+  - f(T)= 0.29463
+
+. Time used -435490h-20m-43s
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
