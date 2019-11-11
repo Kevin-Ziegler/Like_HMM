@@ -1,7 +1,3 @@
-
-
-Scenario: 3 
-
 filename: Data/test7_seqgen_phyml_siteLks.txt
 
 
@@ -11,6 +7,3 @@ Viterbi :
 
 Forward-Backward : 
 <0-474>2:-108.730036367: XXX <475-6090>0:-109.632809592: XXX <6091-7935>1:-0.753561857175: XXX <7936-9999>2:-37.5676941293: ---> -256.684101946
-Exit Val: 0
-position: 6103 added: -15888.3831 combined: -15915.85 diff: 27.46690000000126
-position: 7974 added: -8130.1548 combined: -8187.5145 diff: 57.359699999999975
