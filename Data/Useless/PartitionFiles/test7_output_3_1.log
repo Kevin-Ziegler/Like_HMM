@@ -1,0 +1,97 @@
+IQ-TREE multicore version 1.6.9 for Linux 64-bit built Dec 20 2018
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    66 (AVX, 251 GB RAM)
+Command: /media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_output_3_1
+Seed:    659610 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Mon Nov 11 12:37:32 2019
+Kernel:  AVX - 1 threads (32 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 32 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading partition model file Data/Useless/PartitionFiles/test7_output_3_1 ...
+Reading alignment file Data/test7_seqgen ... Phylip format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 5 sequences with 10000 columns, 119 distinct patterns
+198 parsimony-informative, 957 singleton sites, 8845 constant sites
+   Gap/Ambiguity  Composition  p-value
+   1  3    0.00%    passed     98.74%
+   2  1    0.00%    passed     99.49%
+   3  2    0.00%    passed     99.99%
+   4  4    0.00%    passed     99.02%
+   5  5    0.00%    passed     99.07%
+****  TOTAL    0.00%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+
+Partition file is not in NEXUS format, assuming RAxML-style partition file...
+Subset	Type	Seqs	Sites	Infor	Invar	Model	Name
+1	DNA	5	1871	22	1624	GTR	part1
+Degree of missing data: 0.000
+Info: multi-threading strategy over partitions
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.000 seconds
+
+NOTE: 0 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+Initial log-likelihood: -3955.352
+Current log-likelihood at step 1: -3858.502
+Current log-likelihood at step 2: -3858.500
+Parameters optimization took 1 rounds (0.002 sec)
+
+Computing ML distances based on estimated model parameters... 0.000 sec
+Computing BIONJ tree...
+0.000 seconds
+Log-likelihood of BIONJ tree: -3858.500
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 99 parsimony trees... 0.018 second
+Computing log-likelihood of 4 initial trees ... 0.001 seconds
+Current best score: -3858.500
+
+Do NNI search on 5 best initial trees
+Finish initializing candidate tree set (5)
+Current best tree score: -3858.500 / CPU time: 0.022
+Number of iterations: 5
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 10 / LogL: -3858.500 / Time: 0h:0m:0s
+Iteration 20 / LogL: -3858.500 / Time: 0h:0m:0s
+Iteration 30 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 40 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 50 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 60 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 70 / LogL: -3859.224 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 80 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 90 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+Iteration 100 / LogL: -3858.500 / Time: 0h:0m:0s (0h:0m:0s left)
+TREE SEARCH COMPLETED AFTER 101 ITERATIONS / Time: 0h:0m:0s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+Initial log-likelihood: -3858.500
+Current log-likelihood at step 1: -3858.500
+Parameters optimization took 0 rounds (0.000 sec)
+
+BEST SCORE FOUND : -3858.500
+Total tree length: 0.140
+
+Total number of iterations: 101
+CPU time used for tree search: 0.094 sec (0h:0m:0s)
+Wall-clock time used for tree search: 0.095 sec (0h:0m:0s)
+Total CPU time used: 0.105 sec (0h:0m:0s)
+Total wall-clock time used: 0.105 sec (0h:0m:0s)
+
+Analysis results written to: 
+  IQ-TREE report:                Data/Useless/PartitionFiles/test7_output_3_1.iqtree
+  Maximum-likelihood tree:       Data/Useless/PartitionFiles/test7_output_3_1.treefile
+  Likelihood distances:          Data/Useless/PartitionFiles/test7_output_3_1.mldist
+  Screen log file:               Data/Useless/PartitionFiles/test7_output_3_1.log
+
+Date and Time: Mon Nov 11 12:37:32 2019

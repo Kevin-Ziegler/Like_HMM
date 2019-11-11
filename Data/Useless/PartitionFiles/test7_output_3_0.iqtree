@@ -1,0 +1,89 @@
+IQ-TREE 1.6.9 built Dec 20 2018
+
+Partition file name: Data/Useless/PartitionFiles/test7_output_3_0
+Input file name: Data/test7_seqgen
+Type of analysis: ModelFinder + tree reconstruction
+Random seed number: 656539
+
+REFERENCES
+----------
+
+To cite ModelFinder please use: 
+
+Subha Kalyaanamoorthy, Bui Quang Minh, Thomas KF Wong, Arndt von Haeseler,
+and Lars S Jermiin (2017) ModelFinder: Fast model selection for
+accurate phylogenetic estimates. Nature Methods, 14:587–589.
+https://doi.org/10.1038/nmeth.4285
+
+To cite IQ-TREE please use:
+
+Lam-Tung Nguyen, Heiko A. Schmidt, Arndt von Haeseler, and Bui Quang Minh
+(2015) IQ-TREE: A fast and effective stochastic algorithm for estimating
+maximum likelihood phylogenies. Mol Biol Evol, 32:268-274.
+https://doi.org/10.1093/molbev/msu300
+
+Since you used partition models please also cite:
+
+Olga Chernomor, Arndt von Haeseler, and Bui Quang Minh (2016)
+Terrace aware data structure for phylogenomic inference from
+supermatrices. Syst Biol, 65:997-1008.
+https://doi.org/10.1093/sysbio/syw037
+
+SEQUENCE ALIGNMENT
+------------------
+
+Input data: 5 taxa with 1 partitions and 6102 total sites (0% missing data)
+
+  ID  Name   Type	Seq	Site	Unique	Infor	Invar	Const
+   1  part1  DNA	5	6102	98	120	5471	5471
+
+Column meanings:
+  Unique: Number of unique site patterns
+  Infor:  Number of parsimony-informative sites
+  Invar:  Number of invariant sites
+  Const:  Number of constant sites (can be subset of invariant sites)
+
+SUBSTITUTION PROCESS
+--------------------
+
+Edge-linked-equal partition model but separate models between partitions
+
+  ID  Model           Speed  Parameters
+   1  GTR+F          1.0000  GTR{0.857425,5.55253,0.807272,0.954158,5.84835}+F{0.289577,0.204294,0.207375,0.298755}
+
+MAXIMUM LIKELIHOOD TREE
+-----------------------
+
+Log-likelihood of the tree: -12029.8833 (s.e. 119.7813)
+Unconstrained log-likelihood (without tree): -11941.7914
+Number of free parameters (#branches + #model parameters): 15
+Akaike information criterion (AIC) score: 24089.7665
+Corrected Akaike information criterion (AICc) score: 24089.8454
+Bayesian information criterion (BIC) score: 24190.5121
+
+Total tree length (sum of branch lengths): 0.1117
+Sum of internal branch lengths: 0.0182 (16.2758% of tree length)
+
+NOTE: Tree is UNROOTED although outgroup taxon '3' is drawn at root
+
++--------------3
+|
+|        +----1
++--------|
+|        +-----2
+|
+|         +---------------------------4
++---------|
+          +------------------------------------------------5
+
+Tree in newick format:
+
+(3:0.0135270011,(1:0.0047789634,2:0.0056227173):0.0088746596,(4:0.0253050960,5:0.0442795354):0.0093041014);
+
+TIME STAMP
+----------
+
+Date and time: Mon Nov 11 12:37:32 2019
+Total CPU time used: 0.138807 seconds (0h:0m:0s)
+Total wall-clock time used: 0.140762 seconds (0h:0m:0s)
+

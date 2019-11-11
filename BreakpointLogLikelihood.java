@@ -24,8 +24,9 @@ class BreakpointLogLikelihood{
 	public static void main(String args[]){
 		String hmm_outputfile = args[0];
 		String alignmentfile = args[1];
+		String iqtree_location = args[2];
 		String justname = parse_slash(args[0]);
-		String partitionFileoutput = "/pool/Kevin/Recombination_PipeLine_Output_8_12_19/Useless/PartitionFiles/";
+		String partitionFileoutput = "Data/Useless/PartitionFiles/";
 		ArrayList<String[]> listbreakpoints = new ArrayList<>();
 
 		//gather locations of breakpoints
@@ -138,13 +139,13 @@ class BreakpointLogLikelihood{
 			FileWriter w = new FileWriter(partitionFileoutput +justname+"commandlinefileIqtreebreakpointcheck");
 			String cmdline = "";
 			for(int i = 0; i < partitions.size(); i++){
-				cmdline = "/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s " + alignmentfile +" -q " + partitionFileoutput+justname+"_"+i + " > waste.txt";
+				cmdline = iqtree_location + "iqtree -redo -s " + alignmentfile +" -q " + partitionFileoutput+justname+"_"+i + " > waste.txt";
 				w.write(cmdline + "\n");
 				cmdline = "";
 
 			}
 			for(int i = 0; i < merged_partitions.size(); i++){
-				cmdline = "/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s " + alignmentfile +" -q " + partitionFileoutput+justname+"_merged_"+i + " > waste.txt";
+				cmdline = iqtree_location + "iqtree -redo -s " + alignmentfile +" -q " + partitionFileoutput+justname+"_merged_"+i + " > waste.txt";
 				w.write(cmdline + "\n");
 				cmdline = "";
 

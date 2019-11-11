@@ -89,9 +89,15 @@ public class Like_HMMFinal{
 	public static void main(String args[]){
 		String ms_outputdir = args[0];
 		String ms_outputfile = args[1];
+		String iqtree_location = args[2];
+
 
 		String interesting_outputdir = ms_outputdir + "Interesting/";
 		String useless_outputdir = ms_outputdir + "Useless/";
+		my_Mkdir(interesting_outputdir);
+		my_Mkdir(useless_outputdir);
+		my_Mkdir(useless_outputdir+"PartitionFiles/");
+
 
 		String finaloutput = interesting_outputdir+ms_outputfile+"_analyzeoutput";
 		int last_run = -1;
@@ -159,7 +165,7 @@ public class Like_HMMFinal{
 
 
 					//Call BreakpointLogLikelihood
-				    String linetoExec_java = "java BreakpointLogLikelihood " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run) + " " + ms_outputdir + ms_outputfile+"_seqgen > "+useless_outputdir+ms_outputfile+"diffloglike_"+Integer.toString(last_run);
+				    String linetoExec_java = "java BreakpointLogLikelihood " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run) + " " + ms_outputdir + ms_outputfile+"_seqgen " + iqtree_location + " > "+useless_outputdir+ms_outputfile+"diffloglike_"+Integer.toString(last_run);
 					String commands5[] = {"bash", "-c", linetoExec_java};
 					callCommandLine(commands5);
 
