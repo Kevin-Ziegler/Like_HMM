@@ -1,0 +1,19 @@
+Number of Trees Analyzed: 3 
+Phyml_Multi Output: 
+
+Viterbi : 
+<0-6101>0:: XXX <6102-7972>1:: XXX <7973-9999>2:: ---> -20230.2799438
+
+
+Forward-Backward : 
+<0-474>2:-108.774032042: XXX <475-6090>0:-109.636501212: XXX <6091-7935>1:-0.7538642049: XXX <7936-9999>2:-37.6138573792: ---> -256.778254839
+
+LogLikelihood of All BreakPoints:
+
+position: 6103 added: -15888.3831 combined: -15915.85 diff: 27.46690000000126
+position: 7974 added: -8130.1548 combined: -8187.5145 diff: 57.359699999999975
+
+Signifigant BreakPoints: 
+
+Position: 6103 Diffloglike: 27.46690000000126
+Position: 7974 Diffloglike: 57.359699999999975

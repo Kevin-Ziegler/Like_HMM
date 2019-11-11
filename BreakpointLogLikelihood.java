@@ -25,8 +25,9 @@ class BreakpointLogLikelihood{
 		String hmm_outputfile = args[0];
 		String alignmentfile = args[1];
 		String iqtree_location = args[2];
+		String dataPath = args[3];
 		String justname = parse_slash(args[0]);
-		String partitionFileoutput = "Data/Useless/PartitionFiles/";
+		String partitionFileoutput = dataPath + "Useless/PartitionFiles/";
 		ArrayList<String[]> listbreakpoints = new ArrayList<>();
 
 		//gather locations of breakpoints

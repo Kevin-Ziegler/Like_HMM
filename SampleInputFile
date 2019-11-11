@@ -1,0 +1,7 @@
+DirectoryofData: Data/
+InputFile: test7_seqgen
+LogLikeThreshold: 20
+RangeofTrees: 2 10
+PathofIqtree: /media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/
+ParametersForPhyml_multi: 0 i 1 0 HKY 4.0 e 1 1.0 BIONJ y y y
+

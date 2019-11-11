@@ -1,0 +1,5 @@
+/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_seqgen_output_3_0 > waste.txt
+/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_seqgen_output_3_1 > waste.txt
+/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_seqgen_output_3_2 > waste.txt
+/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_seqgen_output_3_merged_0 > waste.txt
+/media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/iqtree -redo -s Data/test7_seqgen -q Data/Useless/PartitionFiles/test7_seqgen_output_3_merged_1 > waste.txt

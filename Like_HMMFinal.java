@@ -87,31 +87,85 @@ public class Like_HMMFinal{
 
 
 	public static void main(String args[]){
-		String ms_outputdir = args[0];
-		String ms_outputfile = args[1];
-		String iqtree_location = args[2];
+
+		String ms_outputdir = "";
+		String ms_outputfile = "";
+		String logLikeThreshold = "";
+		String rangeofTrees = "";
+		String startTreeNumber = "";
+		String stopTreeNumber = "";
+		String pathofIqtree = "";
+		String parametersForPhyml_multi = "";
 
 
-		String interesting_outputdir = ms_outputdir + "Interesting/";
+
+
+		if(args.length == 0){
+			System.out.println("Please specify a file containing input parameters in following format");
+			System.out.println("DirectoryofData: Data/\nInputFile: test7\nLogLikeThreshold: 20\nRangeofTrees: 2 10\nPathofIqtree: ~/Downloads/iqtree-1.6.9-Linux/bin/\nParametersForPhyml_multi: 0 i 1 0 HKY 4.0 e 1 1.0 BIONJ y y y");
+			System.exit(0);
+		}
+
+		try{
+			FileReader f = new FileReader(args[0]);
+			BufferedReader br = new BufferedReader(f);
+
+			String line = "";
+			String sline[];
+			int linecounter = 0;
+			while((line = br.readLine()) != null){
+				sline = line.split("\\s++");
+				if(linecounter == 0){
+					ms_outputdir = sline[1];
+				}
+				if(linecounter == 1){
+					ms_outputfile = sline[1];
+				}
+				if(linecounter == 2){
+					logLikeThreshold = sline[1];
+				}
+				if(linecounter == 3){
+					rangeofTrees = sline[1] + " " + sline[2];
+					startTreeNumber = sline[1];
+					stopTreeNumber = sline[2];
+				}
+				if(linecounter == 4){
+					pathofIqtree = sline[1];
+				}
+				if(linecounter == 5){
+					parametersForPhyml_multi = line.substring(26, line.length());
+				}
+				linecounter++;
+			}
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		System.out.println(ms_outputdir);
+		System.out.println(ms_outputfile);
+		System.out.println(logLikeThreshold);
+		System.out.println(rangeofTrees);
+		System.out.println(pathofIqtree);
+		System.out.println(parametersForPhyml_multi);
+
+		String interesting_outputdir = ms_outputdir + "Like_HMM_Output/";
 		String useless_outputdir = ms_outputdir + "Useless/";
 		my_Mkdir(interesting_outputdir);
 		my_Mkdir(useless_outputdir);
 		my_Mkdir(useless_outputdir+"PartitionFiles/");
 
 
-		String finaloutput = interesting_outputdir+ms_outputfile+"_analyzeoutput";
+		String finaloutput = interesting_outputdir+ms_outputfile+"_PredictedBreakPoints";
 		int last_run = -1;
 		String hmm_outputfile = ms_outputfile+"_output";
 		String last_autocorrelationparameter = "";
-		//String phyML_Multi_Location = "/pool/Kevin/LemmonLab/GeneTreeProject/Recombination/Like_HMM_NotGit/";
 
 
-			        for(int z = 2; z < 10; z++){
+			        for(int z = Integer.parseInt(startTreeNumber); z < Integer.parseInt(stopTreeNumber); z++){
 				        //Call phyml
 				        int failedrun = -1;
 				        System.out.println("Z is: "+ Integer.toString(z));
 
-				      	String linetoExec_phmyl = "./phyml_multi " +ms_outputdir + ms_outputfile+"_seqgen 0 i 1 0 HKY 4.0 e 1 1.0 BIONJ y y y " + Integer.toString(z) + " > waste.txt";
+				      	String linetoExec_phmyl = "./phyml_multi " +ms_outputdir + ms_outputfile+" " + parametersForPhyml_multi + " " + Integer.toString(z) + " > waste.txt";
 						System.out.println(linetoExec_phmyl);
 						String commands3[] = {"bash", "-c", linetoExec_phmyl};
 						failedrun = callCommandLine(commands3);
@@ -122,7 +176,7 @@ public class Like_HMMFinal{
 				        //Retrieve autocorelation parameter
 				        String autocorrelationparameter = "";
 						try{
-							FileReader f = new FileReader(ms_outputdir + ms_outputfile+"_seqgen_phyml_lk.txt");
+							FileReader f = new FileReader(ms_outputdir + ms_outputfile+"_phyml_lk.txt");
 							BufferedReader br = new BufferedReader(f);
 							String line;
 
@@ -156,16 +210,16 @@ public class Like_HMMFinal{
 
 
 			   		//Call Hmm
-			        String linetoExec_hmm = "python "+ "PartitioningHMM.py "+ms_outputdir + ms_outputfile+"_seqgen_phyml_siteLks.txt " + last_autocorrelationparameter+ " > " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run);
+			        String linetoExec_hmm = "python "+ "PartitioningHMM.py "+ms_outputdir + ms_outputfile+"_phyml_siteLks.txt " + last_autocorrelationparameter+ " > " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run);
 					System.out.println(linetoExec_hmm);
 					String commands4[] = {"bash", "-c", linetoExec_hmm};
 					callCommandLine(commands4);
-					File file = new File(ms_outputdir + ms_outputfile+"_seqgen_phyml_siteLks.txt");
+					File file = new File(ms_outputdir + ms_outputfile+"_phyml_siteLks.txt");
 					file.delete();
 
 
 					//Call BreakpointLogLikelihood
-				    String linetoExec_java = "java BreakpointLogLikelihood " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run) + " " + ms_outputdir + ms_outputfile+"_seqgen " + iqtree_location + " > "+useless_outputdir+ms_outputfile+"diffloglike_"+Integer.toString(last_run);
+				    String linetoExec_java = "java BreakpointLogLikelihood " + ms_outputdir + hmm_outputfile+"_"+Integer.toString(last_run) + " " + ms_outputdir + ms_outputfile+" " + pathofIqtree + " " + ms_outputdir + " > "+useless_outputdir+ms_outputfile+"diffloglike_"+Integer.toString(last_run);
 					String commands5[] = {"bash", "-c", linetoExec_java};
 					callCommandLine(commands5);
 
@@ -180,9 +234,12 @@ public class Like_HMMFinal{
 			    		PrintWriter w = new PrintWriter(finaloutput);
 			    		String line;
 						System.out.println(z);
-						w.write("\n\nScenario: " + Integer.toString(z) +" \n\n");
+						w.write("Number of Trees Analyzed: " + Integer.toString(z) +" \nPhyml_Multi Output: \n\n");
 						FileReader f = new FileReader(ms_outputdir + hmm_outputfile+"_"+Integer.toString(z));
 						BufferedReader br = new BufferedReader(f);
+						br.readLine();
+						br.readLine();
+						br.readLine();
 						while((line = br.readLine())!= null){
 							w.write(line+"\n");
 						}
@@ -191,10 +248,28 @@ public class Like_HMMFinal{
 
 						FileReader f2 = new FileReader(useless_outputdir+ms_outputfile + "diffloglike_"+Integer.toString(z));
 						BufferedReader br2 = new BufferedReader(f2);
+						w.write("\nLogLikelihood of All BreakPoints:\n\n");
 
+						ArrayList<String> sigPosition = new ArrayList<>();
+						ArrayList<String> sigDiffLogLike = new ArrayList<>();
+						String sline[];
 						while((line = br2.readLine())!= null){
-							w.write(line+"\n");
+							if(line.contains("Exit") == false){
+								w.write(line+"\n");
+								sline = line.split("\\s++");
+								if(Double.parseDouble(sline[7]) >= Double.parseDouble(logLikeThreshold)){
+									sigPosition.add(sline[1]);
+									sigDiffLogLike.add(sline[7]);
+								}
+							}
 						}
+
+						w.write("\nSignifigant BreakPoints: \n\n");
+						for(int i = 0; i < sigPosition.size(); i++){
+							w.write("Position: " + sigPosition.get(i) + " Diffloglike: " + sigDiffLogLike.get(i)+"\n");
+						}
+
+
 
 						f2.close();
 

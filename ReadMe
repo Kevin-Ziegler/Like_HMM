@@ -1,0 +1,32 @@
+Currently this program only works on linux operating systems
+Like_HMM requires python 2, java, and iqtree to be installed
+
+To run the program supply a SampleInputFile which specifies the value of certain parameters
+	java Like_HMMFinal SampleInputFile
+
+The contents of SampleInputFile are:
+
+DirectoryofData: Data/
+InputFile: test7_seqgen
+LogLikeThreshold: 20
+RangeofTrees: 2 10
+PathofIqtree: /media/alemmon/storage1/Kevin_Birds/DownloadedPrograms/iqtree-1.6.9-Linux/bin/
+ParametersForPhyml_multi: 0 i 1 0 HKY 4.0 e 1 1.0 BIONJ y y y
+
+The path of the output can be found with DirectoryofData Folder in a Folder called Like_HMM_Output/
+
+
+
+Instructions for the parameters of phyml_multi can be found on the phyml_multi website: http://pbil.univ-lyon1.fr/software/phyml_multi/
+
+To use python 2 while having python 3 installed one can use the package virtualenv
+
+Use this to create your temporary python "install"
+	virtualenv -p /usr/bin/python2.7 --distribute temp-python
+
+Type this command when you want to use your temporary python.
+	source temp-python/bin/activate
+
+When you no longer wish to use you temporary python type
+	deactivate
+
